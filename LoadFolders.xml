@@ -1,7 +1,12 @@
 <loadFolders>
 	<v1.7>
 		<li>/</li>
+		<li>1.7</li>
 		<li>Common</li>
+
+		<!-- DLC -->
+
+		<!-- Mods -->
 		<li IfModActive="vanillaexpanded.vfearchitect">Common/Mods/VE-Architect</li>
 		<li IfModActive="dubwise.dubsbadhygiene.lite">Common/Mods/DBH</li>
 		<li IfModActive="dubwise.dubsbadhygiene">Common/Mods/DBH</li>

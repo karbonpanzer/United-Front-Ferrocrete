@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<PipeSystem.PipeNetDef>
+		<defName>UFR_AggregateNet</defName>
+		<resource>
+			<name>Ground aggregate</name>
+			<unit>t</unit>
+			<color>(0.55, 0.52, 0.48)</color>
+			<onlyShowStored>true</onlyShowStored>
+			<offTexPath>UFRC/Things/Building/AggrogatePipes/AggrogatePipeline_MenuIcon</offTexPath>
+		</resource>
+		<pipeDefs>
+			<li>UFR_AggregatePipeline</li>
+			<li>UFR_BuriedAggregatePipeline</li>
+		</pipeDefs>
+		<designator>
+			<deconstructIconPath>UFRC/Things/Building/AggrogatePipes/AggrogatePipeline_Deconstruct</deconstructIconPath>
+			<designationCategoryDef>VCHE_PipeNetworks</designationCategoryDef>
+		</designator>
+		<overlayOptions>
+			<overlayColor>(0.55, 0.52, 0.48)</overlayColor>
+		</overlayOptions>
+	</PipeSystem.PipeNetDef>
+
+	<DesignatorDropdownGroupDef>
+		<defName>UFR_AggregatePipelines</defName>
+		<label>aggregate pipelines</label>
+	</DesignatorDropdownGroupDef>
+
+	<ThingDef Name="UFR_AggregatePipelineBase" ParentName="BuildingBase" Abstract="True">
+		<thingClass>PipeSystem.Building_Pipe</thingClass>
+		<category>Building</category>
+		<tickerType>Rare</tickerType>
+		<designatorDropdown>UFR_AggregatePipelines</designatorDropdown>
+		<uiIconScale>0.7</uiIconScale>
+		<drawerType>MapMeshOnly</drawerType>
+		<altitudeLayer>Conduits</altitudeLayer>
+		<passability>Standable</passability>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<drawStyleCategory>Conduits</drawStyleCategory>
+		<comps>
+			<li Class="PipeSystem.CompProperties_Resource">
+				<pipeNet>UFR_AggregateNet</pipeNet>
+			</li>
+			<li Class="PipeSystem.CompProperties_SpillWhenDamaged">
+				<spillEachTicks>1200</spillEachTicks>
+				<startAtHitPointsPercent>0.333</startAtHitPointsPercent>
+				<amountToDraw>1</amountToDraw>
+				<filthMaxSpawnRadius>1</filthMaxSpawnRadius>
+				<chooseFilthFrom>
+					<li>Filth_RubbleRock</li>
+				</chooseFilthFrom>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PipeSystem.PlaceWorker_Pipe</li>
+		</placeWorkers>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<designationCategory>VCHE_PipeNetworks</designationCategory>
+		<constructEffect>ConstructMetal</constructEffect>
+		<clearBuildingArea>false</clearBuildingArea>
+		<researchPrerequisites>
+			<li>UFR_FerrocreteProduction</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+	<ThingDef ParentName="UFR_AggregatePipelineBase">
+		<defName>UFR_AggregatePipeline</defName>
+		<label>aggregate pipeline</label>
+		<description>Heavy conveyor piping that carries ground aggregate from ferrocrete grinders to aggregate tanks and ferrocrete mixers.</description>
+		<graphicData>
+			<texPath>UFRC/Things/Building/AggrogatePipes/AggrogatePipeline_Atlas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<linkType>Basic</linkType>
+			<linkFlags>
+				<li>Custom4</li>
+			</linkFlags>
+			<damageData>
+				<rect>(0,0.35,1,0.3)</rect>
+			</damageData>
+		</graphicData>
+		<uiIconPath>UFRC/Things/Building/AggrogatePipes/AggrogatePipeline_MenuIcon</uiIconPath>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+			<isInert>true</isInert>
+			<isEdifice>false</isEdifice>
+			<blueprintGraphicData>
+				<texPath>UFRC/Things/Building/AggrogatePipes/AggrogatePipeline_Blueprint_Atlas</texPath>
+			</blueprintGraphicData>
+			<canConstructInCorner>true</canConstructInCorner>
+		</building>
+		<statBases>
+			<MaxHitPoints>60</MaxHitPoints>
+			<WorkToBuild>40</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<costList>
+			<Steel>2</Steel>
+		</costList>
+	</ThingDef>
+
+	<ThingDef ParentName="UFR_AggregatePipelineBase">
+		<defName>UFR_BuriedAggregatePipeline</defName>
+		<label>buried aggregate pipeline</label>
+		<description>Aggregate pipeline laid beneath the floor. Invisible, cannot be targeted or damaged by attacks, but slower and more expensive to lay.</description>
+		<graphicData>
+			<texPath>UI/CSG/IConduit</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<linkType>Basic</linkType>
+			<linkFlags>
+				<li>Custom3</li>
+			</linkFlags>
+			<damageData>
+				<rect>(0,0.35,1,0.3)</rect>
+			</damageData>
+		</graphicData>
+		<uiIconPath>UFRC/Things/Building/AggrogatePipes/BuriedAggrogatePipeline_MenuIcon</uiIconPath>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+			<isInert>true</isInert>
+			<isEdifice>false</isEdifice>
+			<blueprintGraphicData>
+				<texPath>UFRC/Things/Building/AggrogatePipes/AggrogatePipeline_Blueprint_Atlas</texPath>
+			</blueprintGraphicData>
+			<ai_neverTrashThis>true</ai_neverTrashThis>
+			<isTargetable>false</isTargetable>
+			<expandHomeArea>false</expandHomeArea>
+			<canBeDamagedByAttacks>false</canBeDamagedByAttacks>
+			<canConstructInCorner>true</canConstructInCorner>
+		</building>
+		<statBases>
+			<MaxHitPoints>48</MaxHitPoints>
+			<WorkToBuild>280</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<costList>
+			<Steel>4</Steel>
+		</costList>
+	</ThingDef>
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>UFR_AggregateValve</defName>
+		<label>aggregate valve</label>
+		<description>Opens or closes ground aggregate flow through a pipeline.</description>
+		<thingClass>PipeSystem.Building_PipeValve</thingClass>
+		<category>Building</category>
+		<graphicData>
+			<texPath>UFRC/Things/Building/AggrogatePipes/AggrogateValve</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>Transparent</shaderType>
+			<damageData>
+				<rect>(0.2,0.2,0.6,0.6)</rect>
+			</damageData>
+		</graphicData>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+			<allowWireConnection>false</allowWireConnection>
+		</building>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Standable</passability>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<statBases>
+			<MaxHitPoints>120</MaxHitPoints>
+			<WorkToBuild>200</WorkToBuild>
+			<Flammability>0</Flammability>
+			<Beauty>-2</Beauty>
+		</statBases>
+		<costList>
+			<Steel>15</Steel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="PipeSystem.CompProperties_PipeValve">
+				<pipeNet>UFR_AggregateNet</pipeNet>
+				<alwaysLinkToPipes>true</alwaysLinkToPipes>
+			</li>
+			<li Class="CompProperties_Flickable">
+				<commandTexture>UFRC/Things/Building/AggrogatePipes/AggrogateValve</commandTexture>
+				<commandLabelKey>UFR_AggregateValve</commandLabelKey>
+				<commandDescKey>UFR_AggregateValveDesc</commandDescKey>
+			</li>
+		</comps>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>false</neverMultiSelect>
+		<tickerType>Normal</tickerType>
+		<designationCategory>VCHE_PipeNetworks</designationCategory>
+		<constructEffect>ConstructMetal</constructEffect>
+		<researchPrerequisites>
+			<li>UFR_FerrocreteProduction</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+</Defs>

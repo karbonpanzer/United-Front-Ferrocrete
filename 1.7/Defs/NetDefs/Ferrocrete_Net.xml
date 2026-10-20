@@ -4,8 +4,8 @@
 	<PipeSystem.PipeNetDef>
 		<defName>UFR_SlurryNet</defName>
 		<resource>
-			<name>Ferrocrete slurry</name>
-			<unit>L</unit>
+			<name>Ferrocrete mix</name>
+			<unit>t</unit>
 			<color>(0.62, 0.62, 0.60)</color>
 			<onlyShowStored>true</onlyShowStored>
 			<offTexPath>UFRC/Things/Building/FerrocretePipes/FerrocretePipeline_MenuIcon</offTexPath>
@@ -72,7 +72,7 @@
 	<ThingDef ParentName="UFR_FerrocretePipelineBase">
 		<defName>UFR_FerrocretePipeline</defName>
 		<label>ferrocrete pipeline</label>
-		<description>Reinforced piping that carries ferrocrete slurry from grinders to vats and kilns.</description>
+		<description>Reinforced piping that carries ferrocrete mix from ferrocrete mixers to ferrocrete tanks and kilns.</description>
 		<graphicData>
 			<texPath>UFRC/Things/Building/FerrocretePipes/FerrocretePipeline_Atlas</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
