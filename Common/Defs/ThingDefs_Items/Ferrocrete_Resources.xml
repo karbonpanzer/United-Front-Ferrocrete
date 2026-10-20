@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<ThingDef ParentName="StoneBlocksBase">
+		<defName>UFR_FerrocreteBricks</defName>
+		<label>ferrocrete bricks</label>
+		<description>Kiln-fired bricks of ferrocrete: ground stone reinforced with shredded steel fibre. Tougher than most quarried stone and quick to lay, though plain to look at. The standard building material of Colonial settlements.</description>
+		<graphicData>
+			<color>(196,196,190)</color>
+		</graphicData>
+		<statBases>
+			<Mass>1</Mass>
+			<SharpDamageMultiplier>0.25</SharpDamageMultiplier>
+			<BluntDamageMultiplier>0.75</BluntDamageMultiplier>
+		</statBases>
+		<stuffProps>
+			<categories>
+				<li>Stony</li>
+			</categories>
+			<commonality>0.10</commonality>
+			<appearance>Smooth</appearance>
+			<statOffsets>
+				<WorkToBuild>120</WorkToBuild>
+			</statOffsets>
+			<statFactors>
+				<MarketValue>0.4</MarketValue>
+				<MaxHitPoints>1.6</MaxHitPoints>
+				<Flammability>0</Flammability>
+				<WorkToBuild>2.8</WorkToBuild>
+				<WorkToMake>1.1</WorkToMake>
+				<DoorOpenSpeed>0.5</DoorOpenSpeed>
+				<BedRestEffectiveness>0.9</BedRestEffectiveness>
+				<MeleeWeapon_CooldownMultiplier>1.30</MeleeWeapon_CooldownMultiplier>
+				<Beauty>0.7</Beauty>
+			</statFactors>
+			<canSuggestUseDefaultStuff>true</canSuggestUseDefaultStuff>
+			<color>(196,196,190)</color>
+			<soundImpactBullet>BulletImpact_Ground</soundImpactBullet>
+			<soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+			<soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+			<stuffAdjective>ferrocrete</stuffAdjective>
+		</stuffProps>
+	</ThingDef>
+
+</Defs>

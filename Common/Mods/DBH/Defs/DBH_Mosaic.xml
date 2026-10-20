@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<TerrainDef ParentName="DBHMosaicBase">
+		<defName>DBHMosaicUFRFerrocrete</defName>
+		<label>ferrocrete mosaic tile</label>
+		<color>(196,196,190)</color>
+		<costList>
+			<UFR_FerrocreteBricks>4</UFR_FerrocreteBricks>
+		</costList>
+	</TerrainDef>
+
+</Defs>

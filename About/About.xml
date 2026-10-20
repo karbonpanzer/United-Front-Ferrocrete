@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>United Front - Ferrocrete</name>
+	<author>karbonpanzer</author>
+	<packageId>KP.unitedfront.ferrocrete</packageId>
+	<supportedVersions>
+		<li>1.7</li>
+	</supportedVersions>
+	<description>A submod for United Front - Colonials.\n\nThe future is not built from the quarries or the forest, but by the power of civilization that we bring.</description>
+	<modDependencies>
+		<li>
+			<packageId>KP.unitedfront</packageId>
+			<displayName>United Front - Colonials</displayName>
+			<downloadUrl>https://github.com/karbonpanzer/United-Front-Colonials</downloadUrl>
+		</li>
+		<li>
+			<packageId>OskarPotocki.VanillaFactionsExpanded.Core</packageId>
+			<displayName>Vanilla Expanded Framework</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=1854607105</steamWorkshopUrl>
+		</li>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+			<steamWorkshopUrl>https://steamcommunity.com/workshop/filedetails/?id=2009463077</steamWorkshopUrl>
+		</li>		
+	</modDependencies>
+	<loadAfter>
+		<li>Ludeon.RimWorld</li>
+		<li>Ludeon.RimWorld.Royalty</li>
+		<li>Ludeon.RimWorld.Ideology</li>
+		<li>Ludeon.RimWorld.Biotech</li>
+		<li>Ludeon.RimWorld.Anomaly</li>
+		<li>Ludeon.RimWorld.Odyssey</li>
+		<li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+		<li>KP.unitedfront</li>
+	</loadAfter>
+</ModMetaData>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<TerrainDef ParentName="FlagstoneBase">
+		<defName>UFR_FerrocreteFlagstone</defName>
+		<label>ferrocrete flagstone</label>
+		<color>(196,196,190)</color>
+		<costList>
+			<UFR_FerrocreteBricks>4</UFR_FerrocreteBricks>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="TileStoneBase">
+		<defName>UFR_FerrocreteTile</defName>
+		<label>ferrocrete tile</label>
+		<color>(196,196,190)</color>
+		<costList>
+			<UFR_FerrocreteBricks>4</UFR_FerrocreteBricks>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FineTileStoneBase">
+		<defName>UFR_FineFerrocreteTile</defName>
+		<label>fine ferrocrete tile</label>
+		<color>(196,196,190)</color>
+		<costList>
+			<UFR_FerrocreteBricks>20</UFR_FerrocreteBricks>
+		</costList>
+	</TerrainDef>
+
+</Defs>

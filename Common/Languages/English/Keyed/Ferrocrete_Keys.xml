@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<UFR_GrinderIdle>Idle. Add the "grind ferrocrete slurry" process, place hoppers with stone blocks and steel on its left and right, and connect a slurry vat.</UFR_GrinderIdle>
+	<UFR_KilnIdle>Not firing. Needs power and a slurry network with stored slurry.</UFR_KilnIdle>
+	<UFR_FerrocreteValve>Toggle valve</UFR_FerrocreteValve>
+	<UFR_FerrocreteValveDesc>Open or close the valve to allow or block ferrocrete slurry flow. A pawn will come to switch it.</UFR_FerrocreteValveDesc>
+</LanguageData>

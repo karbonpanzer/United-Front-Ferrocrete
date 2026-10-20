@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<TerrainDef ParentName="CobblestoneBase">
+		<defName>VFEArch_CobblestoneFloorUFRFerrocrete</defName>
+		<label>ferrocrete cobblestone floor</label>
+		<color>(196,196,190)</color>
+		<costList>
+			<UFR_FerrocreteBricks>4</UFR_FerrocreteBricks>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="PolishedStoneFloorBase">
+		<defName>VFEArch_PolishedStoneFloorUFRFerrocrete</defName>
+		<label>ferrocrete polished floor</label>
+		<color>(196,196,190)</color>
+		<costList>
+			<UFR_FerrocreteBricks>12</UFR_FerrocreteBricks>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="StoneSlabsBase">
+		<defName>VFEArch_SlabsUFRFerrocrete</defName>
+		<label>ferrocrete slabs</label>
+		<color>(196,196,190)</color>
+		<costList>
+			<UFR_FerrocreteBricks>8</UFR_FerrocreteBricks>
+		</costList>
+	</TerrainDef>
+
+</Defs>

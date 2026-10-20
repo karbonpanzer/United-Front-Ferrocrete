@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<ResearchProjectDef>
+		<defName>UFR_FerrocreteProduction</defName>
+		<label>Ferrocrete Production</label>
+		<description>Grind stone blocks and steel fibre into slurry, pipe it to storage, and fire it in kilns into ferrocrete bricks. Standard Colonial construction practice.</description>
+		<baseCost>800</baseCost>
+		<tab>UFR_ResearchTab</tab>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>Electricity</li>
+			<li>Stonecutting</li>
+		</prerequisites>
+		<!-- Free slot in the United Front tab: first column, below Colonial Fabrication Methods (0, 2.8) -->
+		<researchViewX>0</researchViewX>
+		<researchViewY>4.2</researchViewY>
+	</ResearchProjectDef>
+
+</Defs>
