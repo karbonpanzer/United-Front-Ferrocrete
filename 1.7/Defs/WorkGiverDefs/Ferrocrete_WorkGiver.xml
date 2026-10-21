@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<WorkGiverDef>
+		<defName>UFR_DoBillsFerrocreteMixer</defName>
+		<label>make ferrocrete mix</label>
+		<giverClass>WorkGiver_DoBill</giverClass>
+		<workType>Crafting</workType>
+		<priorityInType>30</priorityInType>
+		<fixedBillGiverDefs>
+			<li>UFR_FerrocreteMixer</li>
+		</fixedBillGiverDefs>
+		<verb>mix</verb>
+		<gerund>mixing at</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
+		<canBeDoneByMechs>true</canBeDoneByMechs>
+	</WorkGiverDef>
+
+</Defs>

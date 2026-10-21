@@ -2,38 +2,27 @@
 <Defs>
 
 	<PipeSystem.ProcessDef>
-		<defName>UFR_GrindSlurry</defName>
-		<label>grind ferrocrete slurry</label>
+		<defName>UFR_FireFerrocrete</defName>
+		<label>fire ferrocrete</label>
 		<ingredients>
 			<li>
-				<thingCategory>StoneBlocks</thingCategory>
-				<countNeeded>4</countNeeded>
-				<disallowedThingDefs>
-					<li>UFR_FerrocreteBricks</li>
-				</disallowedThingDefs>
-			</li>
-			<li>
-				<thing>Steel</thing>
-				<countNeeded>1</countNeeded>
+				<thing>UFR_FerrocreteMix</thing>
+				<countNeeded>10</countNeeded>
 			</li>
 		</ingredients>
 		<results>
 			<li>
-				<pipeNet>UFR_SlurryNet</pipeNet>
-				<count>20</count>
+				<thing>UFR_FerrocreteBricks</thing>
+				<count>50</count>
 			</li>
 		</results>
-		<ticks>3000</ticks>
+		<ticks>60000</ticks>
 		<destroyIngredientsOnStart>true</destroyIngredientsOnStart>
-		<autoGrabFromHoppers>true</autoGrabFromHoppers>
-		<autoInputSlots>
-			<li>(-2,0,0)</li>
-			<li>(2,0,0)</li>
-		</autoInputSlots>
+		<autoExtract>false</autoExtract>
 		<researchPrerequisites>
 			<li>UFR_FerrocreteProduction</li>
 		</researchPrerequisites>
-		<lowProgressColor>(0.35, 0.35, 0.35)</lowProgressColor>
+		<lowProgressColor>(0.45, 0.25, 0.15)</lowProgressColor>
 		<finishedColor>(0.80, 0.80, 0.78)</finishedColor>
 	</PipeSystem.ProcessDef>
 

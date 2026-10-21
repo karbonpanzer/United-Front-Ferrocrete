@@ -1,41 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-	<ThingDef Name="UFR_FerrocretePlantBase" ParentName="BuildingBase" Abstract="True">
-		<thingClass>Building</thingClass>
-		<size>(2,2)</size>
-		<rotatable>false</rotatable>
-		<altitudeLayer>Building</altitudeLayer>
-		<passability>Impassable</passability>
-		<pathCost>50</pathCost>
-		<fillPercent>0.6</fillPercent>
-		<blockWind>true</blockWind>
-		<castEdgeShadows>true</castEdgeShadows>
-		<staticSunShadowHeight>0.2</staticSunShadowHeight>
-		<canOverlapZones>false</canOverlapZones>
-		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-		<designationCategory>VCHE_PipeNetworks</designationCategory>
-		<constructEffect>ConstructMetal</constructEffect>
-		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
-		<disableImpassableShotOverConfigError>true</disableImpassableShotOverConfigError>
-		<researchPrerequisites>
-			<li>UFR_FerrocreteProduction</li>
-		</researchPrerequisites>
-	</ThingDef>
-
-	<ThingDef ParentName="UFR_FerrocretePlantBase">
-		<defName>UFR_FerrocreteGrinder</defName>
-		<size>(3,3)</size>
-		<label>ferrocrete grinder</label>
-		<description>An industrial stone grinder. Ferrocrete hoppers built against it feed it stone chunks, which it grinds into ground aggregate, one tonne per chunk, and pumps through a connected aggregate pipeline into aggregate tanks.</description>
-		<tickerType>Normal</tickerType>
-		<drawerType>MapMeshAndRealTime</drawerType>
+	<ThingDef ParentName="BenchBase">
+		<defName>UFR_FerrocreteMixer</defName>
+		<label>ferrocrete mixer</label>
+		<description>An industrial mixing table that grinds stone chunks and blends them with steel fibre into ferrocrete mix. The mix must then be fired in a ferrocrete kiln.</description>
+		<thingClass>Building_WorkTable</thingClass>
 		<graphicData>
-			<texPath>UFRC/Things/Building/FerrocreteProduction/FerrocreteGrinder</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(3,3)</drawSize>
-			<drawRotated>false</drawRotated>
-			<allowFlip>false</allowFlip>
+			<texPath>UFRC/Things/FerrocreteTable/FerrocreteTable</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3.5,1.5)</drawSize>
 			<damageData>
 				<cornerTL>Damage/Corner</cornerTL>
 				<cornerTR>Damage/Corner</cornerTR>
@@ -43,187 +17,74 @@
 				<cornerBR>Damage/Corner</cornerBR>
 			</damageData>
 		</graphicData>
-		<statBases>
-			<MaxHitPoints>250</MaxHitPoints>
-			<WorkToBuild>2500</WorkToBuild>
-			<Mass>60</Mass>
-			<Flammability>0.5</Flammability>
-		</statBases>
+		<castEdgeShadows>true</castEdgeShadows>
+		<staticSunShadowHeight>0.20</staticSunShadowHeight>
 		<costList>
 			<Steel>150</Steel>
 			<ComponentIndustrial>4</ComponentIndustrial>
 		</costList>
-		<building>
-			<wantsHopperAdjacent>true</wantsHopperAdjacent>
-		</building>
-		<comps>
-			<li Class="PipeSystem.CompProperties_Resource">
-				<pipeNet>UFR_AggregateNet</pipeNet>
-			</li>
-			<li Class="CompProperties_Power">
-				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>250</basePowerConsumption>
-			</li>
-			<li Class="CompProperties_Flickable"/>
-		</comps>
-	</ThingDef>
-
-	<ThingDef ParentName="UFR_FerrocretePlantBase">
-		<defName>UFR_AggregateTank</defName>
-		<label>aggregate tank</label>
-		<description>A storage tank for ground aggregate. Buffers aggregate between ferrocrete grinders and ferrocrete mixers. An aggregate network needs at least one tank before hoppers will feed it.</description>
-		<tickerType>Normal</tickerType>
-		<drawerType>MapMeshAndRealTime</drawerType>
-		<graphicData>
-			<texPath>UFRC/Things/Building/AggrogateProduction/AggrogatePipelineVat</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(3,3)</drawSize>
-			<drawRotated>false</drawRotated>
-			<allowFlip>false</allowFlip>
-			<damageData>
-				<cornerTL>Damage/Corner</cornerTL>
-				<cornerTR>Damage/Corner</cornerTR>
-				<cornerBL>Damage/Corner</cornerBL>
-				<cornerBR>Damage/Corner</cornerBR>
-			</damageData>
-		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.5</fillPercent>
+		<useHitPoints>True</useHitPoints>
 		<statBases>
-			<MaxHitPoints>200</MaxHitPoints>
-			<WorkToBuild>1200</WorkToBuild>
-			<Mass>30</Mass>
-			<Flammability>0</Flammability>
-		</statBases>
-		<costList>
-			<Steel>100</Steel>
-		</costList>
-		<comps>
-			<li Class="PipeSystem.CompProperties_ResourceStorage">
-				<pipeNet>UFR_AggregateNet</pipeNet>
-				<storageCapacity>20</storageCapacity>
-				<barSize>(0.75, 0.20)</barSize>
-				<margin>0.05</margin>
-				<centerOffset>(0, 0, -0.35)</centerOffset>
-				<destroyOptions>
-					<li>
-						<thing>Filth_RubbleRock</thing>
-						<ratio>0.25</ratio>
-						<maxRadius>3</maxRadius>
-					</li>
-				</destroyOptions>
-			</li>
-		</comps>
-	</ThingDef>
-
-	<ThingDef ParentName="UFR_FerrocretePlantBase">
-		<defName>UFR_AggregateMixer</defName>
-		<size>(3,3)</size>
-		<label>ferrocrete mixer</label>
-		<description>An industrial mixer that draws ground aggregate from a connected aggregate pipeline and slowly converts each tonne into one tonne of ferrocrete mix, pumping it into a connected ferrocrete pipeline. It holds nothing itself and waits whenever the ferrocrete tanks are full.</description>
-		<tickerType>Normal</tickerType>
-		<drawerType>MapMeshAndRealTime</drawerType>
-		<graphicData>
-			<texPath>UFRC/Things/Building/FerrocreteProduction/FerrocreteMixer</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(3,3)</drawSize>
-			<drawRotated>false</drawRotated>
-			<allowFlip>false</allowFlip>
-			<damageData>
-				<cornerTL>Damage/Corner</cornerTL>
-				<cornerTR>Damage/Corner</cornerTR>
-				<cornerBL>Damage/Corner</cornerBL>
-				<cornerBR>Damage/Corner</cornerBR>
-			</damageData>
-		</graphicData>
-		<statBases>
-			<MaxHitPoints>200</MaxHitPoints>
-			<WorkToBuild>1500</WorkToBuild>
-			<Mass>40</Mass>
-			<Flammability>0</Flammability>
-		</statBases>
-		<costList>
-			<Steel>120</Steel>
-			<ComponentIndustrial>2</ComponentIndustrial>
-		</costList>
-		<comps>
-			<li Class="PipeSystem.CompProperties_ResourceProcessor">
-				<pipeNet>UFR_AggregateNet</pipeNet>
-				<showBufferInfo>false</showBufferInfo>
-				<notWorkingKey>UFR_MixerIdle</notWorkingKey>
-				<results>
-					<li>
-						<countNeeded>1</countNeeded>
-						<eachTicks>7500</eachTicks>
-						<net>UFR_SlurryNet</net>
-						<netCount>1</netCount>
-					</li>
-				</results>
-			</li>
-			<li Class="PipeSystem.CompProperties_Resource">
-				<pipeNet>UFR_SlurryNet</pipeNet>
-			</li>
-			<li Class="CompProperties_Power">
-				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>250</basePowerConsumption>
-			</li>
-			<li Class="CompProperties_Flickable"/>
-		</comps>
-	</ThingDef>
-
-	<ThingDef ParentName="UFR_FerrocretePlantBase">
-		<defName>UFR_FerrocreteVat</defName>
-		<label>ferrocrete tank</label>
-		<description>An agitated storage tank that keeps ferrocrete mix from setting. Buffers mix between ferrocrete mixers and kilns.</description>
-		<tickerType>Normal</tickerType>
-		<drawerType>MapMeshAndRealTime</drawerType>
-		<graphicData>
-			<texPath>UFRC/Things/Building/FerrocreteProduction/FerrocretePipelineVat</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(3,3)</drawSize>
-			<drawRotated>false</drawRotated>
-			<allowFlip>false</allowFlip>
-			<damageData>
-				<cornerTL>Damage/Corner</cornerTL>
-				<cornerTR>Damage/Corner</cornerTR>
-				<cornerBL>Damage/Corner</cornerBL>
-				<cornerBR>Damage/Corner</cornerBR>
-			</damageData>
-		</graphicData>
-		<statBases>
-			<MaxHitPoints>200</MaxHitPoints>
-			<WorkToBuild>1200</WorkToBuild>
-			<Mass>30</Mass>
+			<WorkToBuild>2500</WorkToBuild>
+			<MaxHitPoints>180</MaxHitPoints>
 			<Flammability>0.5</Flammability>
+			<Cleanliness>-5</Cleanliness>
 		</statBases>
-		<costList>
-			<Steel>100</Steel>
-		</costList>
+		<size>(3,1)</size>
+		<designationCategory>Production</designationCategory>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<surfaceType>Item</surfaceType>
+		<recipes>
+			<li>UFR_Make_FerrocreteMix</li>
+		</recipes>
+		<inspectorTabs>
+			<li>ITab_Bills</li>
+		</inspectorTabs>
 		<comps>
-			<li Class="PipeSystem.CompProperties_ResourceStorage">
-				<pipeNet>UFR_SlurryNet</pipeNet>
-				<storageCapacity>12</storageCapacity>
-				<barSize>(0.75, 0.20)</barSize>
-				<margin>0.05</margin>
-				<centerOffset>(0, 0, -0.35)</centerOffset>
-				<destroyOptions>
-					<li>
-						<thing>Filth_RubbleRock</thing>
-						<ratio>0.05</ratio>
-						<maxRadius>3</maxRadius>
-					</li>
-				</destroyOptions>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>250</basePowerConsumption>
 			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_AffectedByFacilities">
+				<linkableFacilities>
+					<li>ToolCabinet</li>
+					<li MayRequire="VanillaExpanded.VFEProduction">VFE_FabricationCabinet</li>
+				</linkableFacilities>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
 		</comps>
+		<building>
+			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+			<workTableRoomRole>Workshop</workTableRoomRole>
+			<workTableNotInRoomRoleFactor>0.8</workTableNotInRoomRoleFactor>
+		</building>
+		<constructEffect>ConstructMetal</constructEffect>
+		<researchPrerequisites>
+			<li>UFR_FerrocreteProduction</li>
+		</researchPrerequisites>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
 	</ThingDef>
 
-	<ThingDef ParentName="UFR_FerrocretePlantBase">
+	<ThingDef ParentName="BuildingBase">
 		<defName>UFR_FerrocreteKiln</defName>
-		<size>(3,3)</size>
 		<label>ferrocrete kiln</label>
-		<description>An electric kiln that draws ferrocrete mix from a connected ferrocrete pipeline and slowly fires it in large batches, turning 2 tonnes of mix into 50 ferrocrete bricks every half day and pushing them out beside itself.</description>
-		<tickerType>Normal</tickerType>
+		<description>An electric kiln that fires ferrocrete mix into ferrocrete bricks. Load it with mix and let it fire; a pawn collects the bricks once the batch is done. Losing power pauses firing.</description>
+		<tickerType>Rare</tickerType>
 		<drawerType>MapMeshAndRealTime</drawerType>
+		<size>(3,3)</size>
+		<rotatable>false</rotatable>
 		<graphicData>
-			<texPath>UFRC/Things/Building/FerrocreteProduction/FerrocreteKiln</texPath>
+			<texPath>UFRC/Things/FerrocreteKiln</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(3,3)</drawSize>
 			<drawRotated>false</drawRotated>
@@ -235,6 +96,18 @@
 				<cornerBR>Damage/Corner</cornerBR>
 			</damageData>
 		</graphicData>
+		<castEdgeShadows>true</castEdgeShadows>
+		<staticSunShadowHeight>0.2</staticSunShadowHeight>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<disableImpassableShotOverConfigError>true</disableImpassableShotOverConfigError>
+		<fillPercent>0.6</fillPercent>
+		<blockWind>true</blockWind>
+		<canOverlapZones>false</canOverlapZones>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<designationCategory>Production</designationCategory>
+		<constructEffect>ConstructMetal</constructEffect>
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
 		<statBases>
 			<MaxHitPoints>250</MaxHitPoints>
 			<WorkToBuild>2000</WorkToBuild>
@@ -245,24 +118,20 @@
 			<Steel>120</Steel>
 			<ComponentIndustrial>3</ComponentIndustrial>
 		</costList>
+		<inspectorTabs>
+			<li>PipeSystem.ITab_Processor</li>
+		</inspectorTabs>
 		<comps>
-			<li Class="PipeSystem.CompProperties_ResourceProcessor">
-				<pipeNet>UFR_SlurryNet</pipeNet>
-				<showBufferInfo>true</showBufferInfo>
+			<li Class="PipeSystem.CompProperties_AdvancedResourceProcessor">
 				<notWorkingKey>UFR_KilnIdle</notWorkingKey>
-				<results>
-					<li>
-						<countNeeded>2</countNeeded>
-						<eachTicks>30000</eachTicks>
-						<thing>UFR_FerrocreteBricks</thing>
-						<thingCount>50</thingCount>
-					</li>
-				</results>
+				<showProgressBar>true</showProgressBar>
+				<processes>
+					<li>UFR_FireFerrocrete</li>
+				</processes>
 			</li>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
 				<basePowerConsumption>400</basePowerConsumption>
-				<shortCircuitInRain>false</shortCircuitInRain>
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_HeatPusher">
@@ -270,77 +139,6 @@
 				<heatPerSecond>4</heatPerSecond>
 			</li>
 		</comps>
-	</ThingDef>
-
-	<ThingDef ParentName="BuildingBase">
-		<defName>UFR_FerrocreteHopper</defName>
-		<label>ferrocrete hopper</label>
-		<description>A heavy-duty hopper that feeds stone chunks into a ferrocrete grinder. It must be built directly against the grinder.</description>
-		<thingClass>Building_Storage</thingClass>
-		<graphicData>
-			<texPath>UFRC/Things/Building/FerrocreteProduction/FerrocreteHopper</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawRotated>false</drawRotated>
-			<allowFlip>false</allowFlip>
-			<damageData>
-				<rect>(0.05,0.1,0.9,0.9)</rect>
-			</damageData>
-		</graphicData>
-		<altitudeLayer>Building</altitudeLayer>
-		<passability>PassThroughOnly</passability>
-		<pathCost>42</pathCost>
-		<fillPercent>0.5</fillPercent>
-		<castEdgeShadows>true</castEdgeShadows>
-		<staticSunShadowHeight>0.3</staticSunShadowHeight>
-		<surfaceType>Item</surfaceType>
-		<canOverlapZones>false</canOverlapZones>
-		<rotatable>false</rotatable>
-		<statBases>
-			<MaxHitPoints>100</MaxHitPoints>
-			<WorkToBuild>300</WorkToBuild>
-			<Flammability>0</Flammability>
-		</statBases>
-		<costList>
-			<Steel>20</Steel>
-		</costList>
-		<building>
-			<preventDeteriorationOnTop>true</preventDeteriorationOnTop>
-			<ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
-			<blueprintClass>Blueprint_Storage</blueprintClass>
-			<fixedStorageSettings>
-				<filter>
-					<disallowNotEverStorable>true</disallowNotEverStorable>
-					<categories>
-						<li>StoneChunks</li>
-					</categories>
-				</filter>
-			</fixedStorageSettings>
-			<defaultStorageSettings>
-				<priority>Important</priority>
-				<filter>
-					<disallowNotEverStorable>true</disallowNotEverStorable>
-					<categories>
-						<li>StoneChunks</li>
-					</categories>
-				</filter>
-			</defaultStorageSettings>
-		</building>
-		<inspectorTabs>
-			<li>ITab_Storage</li>
-		</inspectorTabs>
-		<comps>
-			<li Class="PipeSystem.CompProperties_ConvertThingToResource">
-				<pipeNet>UFR_AggregateNet</pipeNet>
-				<category>StoneChunks</category>
-				<ratio>1</ratio>
-			</li>
-		</comps>
-		<placeWorkers>
-			<li>PlaceWorker_NextToHopperAccepter</li>
-		</placeWorkers>
-		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-		<designationCategory>VCHE_PipeNetworks</designationCategory>
-		<constructEffect>ConstructMetal</constructEffect>
 		<researchPrerequisites>
 			<li>UFR_FerrocreteProduction</li>
 		</researchPrerequisites>

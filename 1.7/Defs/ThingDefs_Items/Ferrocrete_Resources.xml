@@ -42,4 +42,28 @@
 		</stuffProps>
 	</ThingDef>
 
+	<ThingDef ParentName="ResourceBase">
+		<defName>UFR_FerrocreteMix</defName>
+		<label>ferrocrete mix</label>
+		<description>Ground stone blended with steel fibre. It must be fired in a ferrocrete kiln before it can be used as a building material.</description>
+		<graphicData>
+			<texPath>UFRC/Things/ferrocretemix</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<thingCategories>
+			<li>Manufactured</li>
+		</thingCategories>
+		<statBases>
+			<DeteriorationRate>1.0</DeteriorationRate>
+			<MarketValue>3</MarketValue>
+			<Mass>1</Mass>
+			<Flammability>0</Flammability>
+			<MaxHitPoints>60</MaxHitPoints>
+		</statBases>
+		<tickerType>Rare</tickerType>
+	</ThingDef>
+
 </Defs>

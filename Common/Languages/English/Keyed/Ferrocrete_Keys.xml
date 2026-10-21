@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-	<UFR_MixerIdle>Not mixing. Needs power, ground aggregate on its aggregate network, and ferrocrete tank space on its ferrocrete pipeline.</UFR_MixerIdle>
-	<UFR_KilnIdle>Not firing. Needs power and stored ferrocrete mix on its ferrocrete pipeline.</UFR_KilnIdle>
-	<UFR_FerrocreteValve>Toggle valve</UFR_FerrocreteValve>
-	<UFR_FerrocreteValveDesc>Open or close the valve to allow or block ferrocrete mix flow. A pawn will come to switch it.</UFR_FerrocreteValveDesc>
-	<UFR_AggregateValve>Toggle valve</UFR_AggregateValve>
-	<UFR_AggregateValveDesc>Open or close the valve to allow or block ground aggregate flow. A pawn will come to switch it.</UFR_AggregateValveDesc>
+	<UFR_KilnIdle>Idle. Add the "fire ferrocrete" process and load it with ferrocrete mix.</UFR_KilnIdle>
 </LanguageData>

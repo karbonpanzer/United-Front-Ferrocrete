@@ -4,7 +4,7 @@
 	<ResearchProjectDef>
 		<defName>UFR_FerrocreteProduction</defName>
 		<label>Ferrocrete Production</label>
-		<description>Grind stone chunks into aggregate, convert it into ferrocrete mix, pipe it to storage, and fire it in kilns into ferrocrete bricks. Standard Colonial construction practice.</description>
+		<description>Grind stone chunks with steel fibre into ferrocrete mix at a ferrocrete mixer, then fire it in a kiln into ferrocrete bricks. Standard Colonial construction practice.</description>
 		<baseCost>800</baseCost>
 		<tab>UFR_ResearchTab</tab>
 		<techLevel>Industrial</techLevel>
@@ -12,7 +12,6 @@
 			<li>Electricity</li>
 			<li>Stonecutting</li>
 		</prerequisites>
-		<!-- Free slot in the United Front tab: first column, below Colonial Fabrication Methods (0, 2.8) -->
 		<researchViewX>0</researchViewX>
 		<researchViewY>4.2</researchViewY>
 	</ResearchProjectDef>
