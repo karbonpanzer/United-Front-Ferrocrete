@@ -9,7 +9,8 @@
 		<graphicData>
 			<texPath>UFRC/Things/FerrocreteTable/FerrocreteBench</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
-			<drawSize>(3.5,1.5)</drawSize>
+			<drawSize>(2.5,1.5)</drawSize>
+			<drawOffset>(0,0,0.25)</drawOffset>
 			<damageData>
 				<cornerTL>Damage/Corner</cornerTL>
 				<cornerTR>Damage/Corner</cornerTR>
