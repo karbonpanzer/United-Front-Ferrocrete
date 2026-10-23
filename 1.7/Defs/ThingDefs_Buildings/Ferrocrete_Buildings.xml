@@ -7,7 +7,7 @@
 		<description>An industrial mixing table that grinds stone chunks and blends them with steel fibre into ferrocrete mix. The mix must then be fired in a ferrocrete kiln.</description>
 		<thingClass>Building_WorkTable</thingClass>
 		<graphicData>
-			<texPath>UFRC/Things/FerrocreteTable/FerrocreteTable</texPath>
+			<texPath>UFRC/Things/FerrocreteTable/FerrocreteBench</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3.5,1.5)</drawSize>
 			<damageData>
